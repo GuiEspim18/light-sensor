@@ -107,6 +107,10 @@ void loop() {
   // Estado da temperatura em graus celcius
   //temperatura BOA
   if (mediaTemp >= 10 and mediaTemp <= 15) {
+    digitalWrite(GREEN_LED, HIGH);
+    digitalWrite(YELLOW_LED, LOW);
+    digitalWrite(RED_LED, LOW);
+
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.write((uint8_t)0);
@@ -143,9 +147,9 @@ void loop() {
   }
   //temperatura baixa menos que 10 graus
   else {
-    digitalWrite(GREEN_LED, HIGH);
+    digitalWrite(GREEN_LED, LOW);
     digitalWrite(YELLOW_LED, LOW);
-    digitalWrite(RED_LED, LOW);
+    digitalWrite(RED_LED, HIGH);
 
     lcd.clear();
     lcd.setCursor(0, 0);
@@ -165,6 +169,10 @@ void loop() {
 
   //Atualiza estado da umidade
   if (humidity > 50 and humidity < 70) {
+    digitalWrite(GREEN_LED, HIGH);
+    digitalWrite(YELLOW_LED, LOW);
+    digitalWrite(RED_LED, LOW);
+
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.write((uint8_t)1);
@@ -179,6 +187,10 @@ void loop() {
     delay(3000);
 
   } else if (humidity >= 70) {
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(YELLOW_LED, HIGH);
+    digitalWrite(RED_LED, LOW);
+
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.write((uint8_t)1);
